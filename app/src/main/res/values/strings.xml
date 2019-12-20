@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Octo Eyes</string>
+    <string name="tab_1_profile_name">GitHub Profile</string>
+    <string name="tab_2_repo_name">GitHub Repositories</string>
+    <string name="github_username_hint">Github Username?</string>
+</resources>
