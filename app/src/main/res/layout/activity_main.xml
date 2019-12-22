@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable name="activity" type="com.signzy.octoeyes.MainActivity" />
         <variable name="model" type="com.signzy.octoeyes.ui.viewmodel.AppViewModel"  />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity"
@@ -29,24 +29,36 @@
                 android:text="@string/app_name"
                 android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
 
-            <EditText
-                android:id="@+id/editText4"
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:paddingStart="16dp"
-                android:textSize="15sp"
-                android:hint="@string/github_username_hint"
-                android:background="@android:color/transparent"
-                android:text="@={model.userName}" />
+                android:indeterminate="true"
+                android:max="100"
+                android:visibility="@{model.progressVisibility}"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:hint="Username to search?">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={model.userName}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.viewpager.widget.ViewPager
@@ -61,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_dialog_info"
+            android:src="@{model.fabDrawable}"
             android:onClick="@{(view) -> activity.onInfoClick(view, model)}"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

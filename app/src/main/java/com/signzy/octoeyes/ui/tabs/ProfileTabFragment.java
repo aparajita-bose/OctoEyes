@@ -25,7 +25,6 @@ public class ProfileTabFragment extends Fragment {
             @NonNull LayoutInflater inflater,
             @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState) {
-//        return super.onCreateView(inflater, container, savedInstanceState);
         final FragmentProfileTabBinding binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_profile_tab, container, false);
 

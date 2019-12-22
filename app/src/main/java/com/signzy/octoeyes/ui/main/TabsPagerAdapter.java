@@ -20,9 +20,11 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
     private static final int[] TAB_TITLES = new int[] {
-            R.string.tab_1_profile_name, R.string.tab_2_repo_name};
+            R.string.tab_1_profile_name,
+            R.string.tab_2_repo_name};
     private static final Fragment[] TABS = new Fragment[] {
-            ProfileTabFragment.getInstance(), RepoTabFragment.getInstance()};
+            ProfileTabFragment.getInstance(),
+            RepoTabFragment.getInstance()};
     private final Context mContext;
 
     public TabsPagerAdapter(Context context, FragmentManager fm) {
